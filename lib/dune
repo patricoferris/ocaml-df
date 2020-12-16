@@ -1,0 +1,4 @@
+(library
+ (name df)
+ (public_name df)
+ (libraries df.ffi ctypes))

@@ -1,0 +1,6 @@
+; Generator of the C bindings
+
+(executable
+ (name ffi_stubgen)
+ (modules ffi_stubgen)
+ (libraries ffi_bindings ctypes.stubs ctypes))

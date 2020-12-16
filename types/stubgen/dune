@@ -1,0 +1,27 @@
+; Generator of the C bindings
+
+(executable
+ (name types_stubgen)
+ (modules types_stubgen)
+ (libraries type_bindings ctypes.stubs ctypes))
+
+; Executable run to get it 
+
+(rule
+ (targets bindings_stubs_gen.c)
+ (deps
+  (:stubgen ../stubgen/types_stubgen.exe))
+ (action
+  (with-stdout-to
+   %{targets}
+   (run %{stubgen} -c))))
+
+; Compiling C program
+
+(rule
+ (targets bindings_stubs_gen.exe)
+ (deps
+  (:c ./bindings_stubs_gen.c))
+ (action
+  (bash
+    "%{cc} %{c} -I `dirname %{lib:ctypes:ctypes_cstubs_internals.h}` -I %{ocaml_where} -o %{targets}")))

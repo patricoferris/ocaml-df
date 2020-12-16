@@ -1,0 +1,26 @@
+(library
+ (name df_ffi)
+ (public_name df.ffi)
+ (foreign_stubs
+  (language c)
+  (names stubs))
+ (libraries df.bindings ctypes.stubs ctypes ctypes.foreign))
+
+; Get our bindings 
+
+(rule
+ (targets g.ml)
+ (deps ../stubgen/ffi_stubgen.exe)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run %{deps} -ml))))
+
+(rule
+ (targets stubs.c)
+ (deps
+  (:stubgen ../stubgen/ffi_stubgen.exe))
+ (action
+  (with-stdout-to
+   %{targets}
+   (run %{stubgen} -c))))

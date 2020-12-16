@@ -1,0 +1,16 @@
+(library
+ (name df_types)
+ (public_name df.types)
+ (flags
+  (:standard -w -9-27))
+ (libraries df.bindings.types ctypes.stubs ctypes ctypes.foreign))
+
+; Get our bindings 
+
+(rule
+ (targets bindings_stubs.ml)
+ (deps ../stubgen/bindings_stubs_gen.exe)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run %{deps} -ml))))

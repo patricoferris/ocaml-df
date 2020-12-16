@@ -1,0 +1,4 @@
+(library
+ (name type_bindings)
+ (public_name df.bindings.types)
+ (libraries ctypes ctypes.stubs))
