@@ -8,6 +8,7 @@ bug-reports: "https://github.com/patricoferris/ocaml-df/issues"
 depends: [
   "dune" {>= "2.7"}
   "ctypes"
+  "ctypes-foreign"
   "odoc" {with-doc}
 ]
 build: [

@@ -14,4 +14,4 @@
 (package
  (name df)
  (synopsis "Df like capabilities library")
- (depends ctypes))
+ (depends ctypes ctypes-foreign))
