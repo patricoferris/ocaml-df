@@ -1,3 +1,4 @@
+(* General structure taken from https://github.com/avsm/ocaml-yaml/blob/master/ffi/stubgen/ffi_stubgen.ml *)
 let prefix = "statvfs_stub"
 
 let prologue = "#include <sys/types.h>\n#include <sys/statvfs.h>\n"
